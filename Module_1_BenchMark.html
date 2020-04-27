@@ -183,132 +183,213 @@
 -->
   <script>
     // 21) Given variable X = "John" and Y = "Doe", write on the console log "John <> Doe"
-    let X = "John", Y = "Doe";
-    console.log(X, " <> ", Y);
+    function printJohnAndDoe(){
 
+      let X = "John", Y = "Doe";
+      console.log(X, " <> ", Y);
+    }  
     // 22) Create an object with properties such Name, Surname, Email
-    let info = {
-      name:"",
-      surname:"",
-      email:""
-    };
-    console.log(info);
+    function createObject(){
+      let info = {
+        name:"",
+        surname:"",
+        email:""
+      }
+    }
+    
 
     // 23) Delete Email from the previously created object
-    delete info.name;
+    function createObject(){
+      let info = {
+        name:"",
+        surname:"",
+        email:""
+      }
+      delete info.name;
+      console.log(info);
+    }
+    
 
-    // 24) Create an array with 10 strings in     
-    let myArray = [];
-    for(let i=0; i<10; i++){
-      myArray[i]="Hello!";
+    // 24) Create an array with 10 strings in    
+    function createArray(){ 
+      let myArray = [];
+      for(let i=0; i<10; i++){
+        array.push("string" + (x+1));
+      }
+      console.log(array);
     }
     
     // 25) Print in the console every string in the previous array
-    console.log(myArray);
+    
 
     // 26) Create an array with 100 random numbers in it
-    let randomArray = [];
-    for(let i=0; i<100; i++){
+    function createArrayWithRandomNumbers(){
+      let randomArray = [];
+      for(let i=0; i<100; i++){
         randomArray[i]=Math.random()*100;     
+      }
     }
 
     // 27) Wrote a function to get the MAX and the MIN from the previously created array
-    let maxFinder=function(x){
-    let max=Math.max.apply(0, x);
-    return max;
+    function findMinAndMax(array){
+      let min, max;
+      // min and max now are undefined
+      for(let x=0; x<array.length; x++){
+        if(array[x]<min){
+          min=array[x];
+        }
+        if(array[x]>max){
+          max=array[x];
+        }
+      }
+
     }
 
-    let maxRandomArray=maxFinder(randomArray);
-    console.log(maxRandomArray);
-
-    let minFinder=function(x){
-          let min=Math.min.apply(0, x);
-          return min;
-    }
-    let minRandomArray=minFinder(randomArray);
-    console.log(minRandomArray);
+    
 
     // 28) Create an array of arrays, in which every array has 10 random numbers
+    // RIFARE ESERCIZIO!!
+    function arrayOfArrays(){
 
-    let firstArray=[], secondArray=[];
-      for(let i=0; i<10; i++){
-          firstArray[i]=(Math.floor(Math.random()*10));
-        for(let j=0; j<10; j++){
-          secondArray[j]=(Math.floor(Math.random()*10));
-        }       
-      }
-    console.log(firstArray, secondArray);
+      let firstArray=[], secondArray=[];
+        for(let i=0; i<10; i++){
+            firstArray[i]=(Math.floor(Math.random()*10));
+          for(let j=0; j<10; j++){
+            secondArray[j]=(Math.floor(Math.random()*10));
+          }       
+        }
+      console.log(firstArray, secondArray);
+    }
 
     // 29) Create a function that gets 2 arrays and returns the longest one
 
-    let lenghtChecker=function(x=[], y=[]){
-    let firstArrayLenght=x.length;
-    let secondaArrayLenght=y.length; 
-    if(firstArrayLenght>secondaArrayLenght){
-        return x;
-      }else if(firstArrayLenght<secondaArrayLenght){
-        return y;
-      }else{
-        return "The arrays have the same lenght!";
+    function returnLongestArray(array1, array2){
+      if(array1.length > array2.length ){
+        return array1;
+      }else if(array1.length < array2.length){
+        return array2;
+      }else{ // They have the same lenght
+        return array1;
       }
     }
 
-    let lunghezza=lenghtChecker(myArray, randomArray);
-    console.log(lunghezza);
+    
 
     // 30) Create a function that gets 2 arrays of numbers and returns the one with the higher sum of values (not finished!!!)
 
-    let myArrayOfNumbers1=[], myArrayOfNumbers2=[];
-    myArrayOfNumbers1.length=(Math.floor(Math.random()*10));
-    myArrayOfNumbers2.length=(Math.floor(Math.random()*10));
+    function findArrayWithBiggestSum(array1, array2){
+      let sum1 = 0;
+      let sum2 = 0;
 
-    for(let i=0; i<myArrayOfNumbers1.length; i++){
-        myArrayOfNumbers1[i]=(Math.floor(Math.random()*10));
-    }
+      for(let x=0; x<array1.length; x++){
+        sum1= sum1 + array1[x];
+        // sum1+=array[x] è la stessa cosa
+      }
+      // now sum1 is the sum of all array1 elements
 
-    for(let i=0; i<myArrayOfNumbers2.length; i++){
-        myArrayOfNumbers2[i]=(Math.floor(Math.random()*10));
-    }
+      for(y=0; y<array2.length; y++){
+        sum2 = sum2 + array2[x];
+        // sum2+=array[x] è la stessa cosa
+      } 
+      // now sum2 is the sum of all array2 elements
+        if(sum1>sum2){
+          console.log("The sum of first array is bigger!");
+        }else if(sum1<sum2){
+          console.log("The sum of second array is bigger!")
+        }else{
+          console.log("The sum of the arrays is the same!")
+        } 
+      }
 
-    console.log(myArrayOfNumbers1);
-    console.log(myArrayOfNumbers2);
-
-    let higherSum=function(x){
-        let sum=0;
-        for(let i=0; i<x.length; i++){
-            sum=+x[i];        
-        }
-        return sum;
-    }
-    let totalSum=higherSum(myArrayOfNumbers2);
-    console.log(totalSum);
+   
 
     //  DOM 
 
     //    31) Get element with ID "container" from the page
-    document.querySelector("#container");
-    //    32) Get every "td" from the page
-    document.querySelectorAll("td");
-    //    33) Create a cycle that prints the text inside every td of the page
-    let allTd=document.querySelectorAll("td");
-    for(let i=0; i<allTd.length; i++){
-      console.log(allTd[i]);
+
+    function findContainer(){
+      return document.querySelector("#container");
     }
+    
+    //    32) Get every "td" from the 
+    
+    function getTds(){
+      return document.querySelectorAll("td");
+    }
+
+    //    33) Create a cycle that prints the text inside every td of the page
+
+    function printTds(){
+      let tds = document.querySelectorAll("td");
+      for(let x=0; x<tds.length; x++){
+        console.log(tds[x].innerText);
+      }
+    }
+
     //    34) Write a function to change the heading of the page
-    let heading=document.querySelector("h1");
-    heading.innerHTML="<h1>New Heading of the Page!</h>";
+
+    function changeHeading(){
+      document.querySelector("h1").innerText="An Other Title";
+    }
 
 
     //    35) Write a function to add an extra row to the table
-    let newRow=document.createElement("tr");
-    newRow.appendChild(newRow);
+    //    Studiare e comprendere il codice!
 
+    function addRow(){
+      let table = document.querySelector("table");
+      console.log(table);
+      let newRow = document.createElement("tr"); 
+      console.log(newRow);     
+      for(let x=0; x<5; x++){
+        let newCell = document.createElement("td");
+        newCell.innerText=x;
+        newRow.appendChild(newCell);
+      } 
+      console.log(newRow);
+      table.appendChild(newRow);
+    }
 
     //    36) Write a function to add the class "test" to reach row in the table
+
+    function addClassToRows(){
+      let rows = document.querySelectorAll("tr");
+      for(let x=0; x<rows.length; x++){
+        rows[x].classList.add("test");
+      }
+    }
     //    37) Write a function to add a red background to every link in the page
+
+    function addRedBackground(){
+      let links=document.querySelectorAll("a");
+      for(let x=0; x<links.length; x++){
+        links[x].style.backgroundColor="red";
+      }
+    }
+
     //    38) Console log "Page loaded" when the page is correctly loaded
+
+    window.onload = function(){
+      console.log("LOADED");
+    }
+
     //    39) Write a function to add new items to a UL
+
+    function addItemsToUls(){
+      let uls = document.querySelector("ul");
+      let newLi = document.createElement("li");
+      newLi.innerText = "hello!";
+      uls.appendChild(newLi);
+      }
+
     //    40) Write a function to empty a list
+
+    function emptyList(){
+      let li = document.querySelectorAll("ul li");
+      for(let x=0; x<li.length; x++){
+        li[x].innerText="";
+      }
+    }
        
     
 
